@@ -1,0 +1,28 @@
+
+CREATE TABLE ProductName (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Pharmacy (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(100) NOT NULL,
+    Address NVARCHAR(200) NOT NULL,
+    Phone NVARCHAR(12) NOT NULL
+);
+
+CREATE TABLE Stock (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    PharmacyId INT NOT NULL,
+    Name NVARCHAR(100) NOT NULL,
+    FOREIGN KEY (PharmacyId) REFERENCES Pharmacy(Id)
+);
+
+CREATE TABLE Part (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ProductNameId INT NOT NULL,
+    StockId INT NOT NULL,
+    Count BIGINT NOT NULL,
+    FOREIGN KEY (ProductNameId) REFERENCES ProductName(Id),
+    FOREIGN KEY (StockId) REFERENCES Stock(Id)
+);
