@@ -18,6 +18,7 @@ try
         Console.WriteLine("\t"+ResourceMain.Status+" {0}", connection.State);
         Console.WriteLine("\t"+ResourceMain.WorkstationId+" {0}", connection.WorkstationId);
         #endregion
+
         var startup = new Startup(connection);
 
         startup.Run();

@@ -12,7 +12,6 @@ namespace Pharmacy.Console.Common
             try
             {
                 return (T)Convert.ChangeType(input, typeof(T));
-                
             }
             catch (Exception)
             {
